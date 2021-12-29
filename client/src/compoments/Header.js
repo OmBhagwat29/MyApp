@@ -39,7 +39,7 @@ function Header() {
         <div>
             <nav className="navbar navbar-expand-md bg-light navbar-light">
  <div className="container">
- <Link to="/"><span className="navbar-brand LinkClass">HEALTHCARE</span></Link>
+ <Link to="/"><span className="navbar-brand LinkClass">WECARE</span></Link>
 
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span className="navbar-toggler-icon"></span>

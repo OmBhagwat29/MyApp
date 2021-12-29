@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2021 at 04:21 PM
+-- Generation Time: Dec 29, 2021 at 12:38 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mydata`
+-- Database: `wecare`
 --
 
 -- --------------------------------------------------------
@@ -44,7 +44,7 @@ INSERT INTO `campaign` (`id`, `uid`, `title`, `description`, `link`, `uname`) VA
 (6, 13, 'My Title', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'https://source.unsplash.com/OGOWDVLbMSc/500x350', 'aditya'),
 (7, 15, 'Lorem Ipsum is simply dummy text', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.', 'https://source.unsplash.com/ocAuPlfZXEc/500x350', 'shreyas'),
 (8, 16, 'My campaign', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.', 'https://source.unsplash.com/mfB1B1s4sMc/500x350', 'abc'),
-(10, 53, 'My campaign', 'Description of my campaign', 'https://source.unsplash.com/1SAnrIxw5OY/500x350', 'Demo');
+(11, 54, 'New Campaign', 'Description of new campaign', 'https://source.unsplash.com/1SAnrIxw5OY/500x350', 'Demo ');
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `pass`) VALUES
 (13, 'aditya', 'aditya@123.com', '$2b$10$YxbWbI.7.qaZVWZVjXfuEORgo2jJkDx4q3vwsplUZbgc6GzSh6hOW'),
 (16, 'abc', 'abc@123.com', '$2b$10$J5oTglxnh7hNvl90ptiYheCBZEXTg3UMqxpReATGBqVeNN8VYHJni'),
 (50, 'arpan', 'arpan@123.com', '$2b$10$NtudjHgypqwO3zmT8VfHHeKVNNnZfuKn9e.fXyd1q3DQBrs2vt3OS'),
-(53, 'Demo', 'demo@user.com', '$2b$10$yq4jQQjH3fT7WI/9tka2meCiKJ7sLCofZpPRLMPHjAub91hRNPF6i');
+(54, 'Demo ', 'demo@123.com', '$2b$10$jtg6m.K6gHRNjm2ybA5FMulWWLkS3H9HeEIlqUmBHSDfZub7KcWAm');
 
 --
 -- Indexes for dumped tables
@@ -94,13 +94,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `campaign`
 --
 ALTER TABLE `campaign`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
