@@ -5,17 +5,11 @@ import { Link } from 'react-router-dom';
 
 function Signup() {
  
- 
-
-
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
-
-  
-  
 
   const register = () => {
     Axios.post("http://localhost:3001/signup", 
