@@ -43,21 +43,34 @@ app.post("/signup", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    bcrypt.hash(password, saltRounds, (err, hash) => {
-        if(err){
-            console.log(err);
-        }
-        db.query("INSERT INTO users (name, email, pass) VALUES(?,?, ?)",
-        [username, email, hash], 
-        (err, result) => {
-           console.log(err);
-           if(result){
-               res.send({message: "sign up"})
-           }
-       })
-
-
+    db.query("SELECT * FROM users WHERE email = ?",
+    email,
+    (err, result) => {
+       if(err){
+           res.send({err: err})
+       }
+       if(result.length > 0){
+        res.send({message: "User Already Exists"})
+       }else{
+        bcrypt.hash(password, saltRounds, (err, hash) => {
+            if(err){
+                console.log(err);
+            }
+            db.query("INSERT INTO users (name, email, pass) VALUES(?,?, ?)",
+            [username, email, hash], 
+            (err, result) => {
+               console.log(err);
+               if(result){
+                   res.send({message: "sign up"})
+               }
+           })
+    
+    
+        })
+       }
     })
+
+
 
    
 });
@@ -129,15 +142,57 @@ app.post("/addcam", (req, res) => {
 
 
 app.get("/see", (req, res) => {
-    const sqlSelect = "SELECT * FROM campaign";
+    const sqlSelect = "SELECT * FROM campaign WHERE approve = '1'";
+    db.query(sqlSelect, (err, result) => {
+        res.send(result)
+    }) 
+})
+
+app.get("/admin", (req, res) => {
+    const sqlSelect = "SELECT * FROM campaign WHERE approve = '0'";
     db.query(sqlSelect, (err, result) => {
         res.send(result)
     }) 
 })
 
 
+app.post("/confirm", (req, res) => {
+
+   
+    const id = req.body.id;
+  
+   
+        db.query("UPDATE campaign SET approve = '1' WHERE id = '?'",
+        [id], 
+        (err, result) => {
+           console.log(err);
+           res.send({ message: "Done" });
+       });
 
 
+
+
+   
+});
+
+app.post("/delete", (req, res) => {
+
+   
+    const id = req.body.id;
+  
+   
+        db.query("DELETE FROM campaign WHERE id = '?'",
+        [id], 
+        (err, result) => {
+           console.log(err);
+           res.send({ message: "Done" });
+       });
+
+
+
+
+   
+});
 
 
 

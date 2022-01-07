@@ -3,12 +3,20 @@ import { Link } from 'react-router-dom';
 import { UserContext } from "../App";
 
 function Header() {
-
+  const user = localStorage.getItem('User');
   const { state, dispatch } = useContext(UserContext);
 
 
   const RenderMenu = () => {
-    if(state){
+    if(user){
+      if(user==="Admin"){
+        return(
+          <>
+           <li className="nav-item">
+    <Link to="/logout"><span className="nav-link LinkClass">LOGOUT</span></Link> 
+   </li></>
+        )
+      }
       return(
         <>
  

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 function Signup() {
- 
+  const [signupstatus, setsignupstatus] = useState("");
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -18,9 +18,17 @@ function Signup() {
       password: pass,
     }).then((response) => {
       if(response.data.message){
-        document.getElementById('dbox').style.display = "block";
-        console.log(response.data.message);
+        setsignupstatus(response.data.message);
         
+        console.log(response.data.message);
+        if(response.data.message==="sign up"){
+          document.getElementById('dbox').style.display = "block";
+
+        }
+        
+      }else{
+        setsignupstatus("");
+
       }
       
     })
@@ -31,6 +39,7 @@ function Signup() {
         <div>
             <div className="formBox">
                 <h3>SIGN UP</h3>
+                <p className='errmsg'>{signupstatus}</p>
                 <hr/>
     <div className="form-group">
       <label for="email">Username:</label>

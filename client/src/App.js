@@ -6,6 +6,7 @@ import Home from './compoments/Home';
 import Login from './compoments/Login';
 import Signup from './compoments/Signup';
 import Campaign from './compoments/Campaign';
+import Confirm from './compoments/Confirm';
 import Footer from './compoments/Footer';
 import Addcam from './compoments/Addcam';
 import Errpage from './compoments/Errpage';
@@ -33,6 +34,7 @@ function App() {
       <Route path="/login" element={<Login />}/>
       <Route path="/signup" element={<Signup />}/>
       <Route path="/campaign/:id" element={<Campaign />}/>
+      <Route path="/confirm/:id" element={<Confirm />}/>
       <Route path="/addcam" element={<Addcam />}/>
       <Route path="/logout" element={<Logout />}/>
       <Route path='*'  element={<Errpage />} />
