@@ -28,6 +28,7 @@ const navigate = useNavigate();
         
       }else{
         localStorage.setItem("User", response.data[0].name);
+        localStorage.setItem("status", response.data[0].status);
         setloginstatus("");
         dispatch({type: "USER", payload: true});
        

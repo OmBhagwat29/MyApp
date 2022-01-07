@@ -6,10 +6,11 @@ import Content from "./Content"
 function  Main() {
 
     const user = localStorage.getItem('User');
+    const status = localStorage.getItem('status');
     const { state, dispatch } = useContext(UserContext);
 
     if(user){
-        if(user==="Admin"){
+        if(status==="1"){
             return(
                 <Admin/>
             )
